@@ -180,7 +180,9 @@ public class MainActivity extends AppCompatActivity {
         private String readFromStream(InputStream inputStream) throws IOException {
             StringBuilder output = new StringBuilder();
             if (inputStream != null) {
+                // InputStream - sequence of bytes (small chunks of data)
                 InputStreamReader inputStreamReader = new InputStreamReader(inputStream, Charset.forName("UTF-8"));
+                // BufferedReader - help read text from an InputStream
                 BufferedReader reader = new BufferedReader(inputStreamReader);
                 String line = reader.readLine();
                 while (line != null) {
