@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 jsonResponse = makeHttpRequest(url);
             } catch (IOException e) {
-                // TODO Handle the IOException
+                Log.e(LOG_TAG, "Problem retrieving the earthquake JSON results.", e);
             }
 
             // Extract relevant fields from the JSON response and create an {@link Event} object
@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
                     jsonResponse = readFromStream(inputStream);
                 }
             } catch (IOException e) {
-                // TODO: Handle the exception
+                Log.e(LOG_TAG, "Error response code: " + urlConnection.getResponseCode());
             } finally {
                 if (urlConnection != null) {
                     urlConnection.disconnect();
